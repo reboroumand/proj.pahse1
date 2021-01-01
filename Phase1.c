@@ -262,3 +262,60 @@ void makegamescreen(int satr , int soton , int playersNumber , int*arry , int ga
 	}
 }
 
+int main(){
+	int tol , arz , playersNumber , i , exite , j , n , w , a , b , z , f;
+	int arry[6];
+	int gamescreen[100][100];
+	arry[5]=0;
+	printf("\ntol va arz safhe bazi ra vared konid : ");
+	scanf("%d %d" , &tol , &arz);
+	printf("\ntedad bazikonan ra vared konid : ");
+	scanf("%d" , &playersNumber);
+	w=1;
+	printf("\nsend color of player %d : " , w);
+	scanf("%s", &playerOneColor);
+	w++;
+	printf("\nsend color of player %d : " , w);
+	scanf("%s", &playerTwoColor);
+	w++;
+	if(playersNumber==4){
+		printf("\nsend color of player %d : " , w);
+		scanf("%s", &playerThreeColor);
+		w++;
+		printf("\nsend color of player %d : " , w);
+		scanf("%s", &playerFourColor);	
+	}
+	printf("\nsend leave-camp-value : ");
+	scanf("%d", &exite);
+	printf("\nsend beads-order : ");
+	for(j=0 ; j<5 ; j++)
+		scanf("%d" , &arry[j]);
+	if(arry[4]==5)	
+		scanf("%d" , &arry[5]);
+	makegamescreen(tol , arz , playersNumber , arry , gamescreen);
+	for(i=1; ;i++){
+		if(checkNobat(i)==1)
+			printf("\nnobat bazikon 1 ast.\n");
+			
+		else if(checkNobat(i)==2)
+			printf("\nnobat bazikon 2 ast.\n");
+			
+		else if(checkNobat(i)==3)	
+			printf("\nnobat bazikon 3 ast.\n");
+			
+		else
+			printf("\nnobat bazikon 4 ast.\n");
+			
+		printf("\nagar mikhohid az bazi kharej shavid leave-camp-value ra vared konid:");	
+		printf("\nshomare satr va soton mohre mored nazar ra vared konid:");
+		scanf("%d", &z);
+		if(z==exite)
+			return 0;
+		else{
+		scanf("%d", &f);
+		printf("\nshomare satr , soton maghsad mord nazar ra vared konid");
+		scanf("%d %d", &a ,&b);
+		move(z,f,a,b,tol,arz,gamescreen);
+		}
+	}
+}
