@@ -50,4 +50,215 @@ int checkNobat(int i){
 	}
 }
 
+void makegamescreen(int satr , int soton , int playersNumber , int*arry , int gamescreen[100][100]){
+	int p, s , x , y , i , j;
+	int arryOne[6]={1 , 2 , 3 , 4 , 5 , 4};
+	for(s=0 , p=0 ; p<6 ; p++)
+		if(arryOne[p]!=arry[p])
+			s++;
+	// khone haye samt chap	paeen (player 1)
+	//1	
+	x=satr-1;
+	gamescreen[x][0]=1;
+	//2
+	x=satr-2;
+	gamescreen[x][0]=1;
+	x=satr-1;
+	gamescreen[x][1]=1;
+	//3
+	x=satr-3;
+	gamescreen[x][0]=1;
+	x=satr-2;
+	gamescreen[x][1]=1;
+	x=satr-1;
+	gamescreen[x][2]=1;
+	//4
+	x=satr-4;
+	gamescreen[x][0]=1;
+	x=satr-3;
+	gamescreen[x][1]=1;
+	x=satr-2;
+	gamescreen[x][2]=1;
+	x=satr-1;
+	gamescreen[x][3]=1;
+	//3 vs meghdary az 5
+	x=satr-4;
+	gamescreen[x][1]=1;
+	x=satr-3;
+	gamescreen[x][2]=1;
+	x=satr-2;
+	gamescreen[x][3]=1;
+	// khone haye samt rast	paeen (player 2)
+	//1
+	x=satr-1;	y=soton-1;
+	gamescreen[x][y]=2;
+	//2
+	x=satr-1; y=soton-2;
+	gamescreen[x][y]=2;
+	x=satr-2; y=soton-1;
+	gamescreen[x][y]=2;
+	//3
+	x=satr-1;	y=soton-3;
+	gamescreen[x][y]=2;
+	x=satr-2; y=soton-2;
+	gamescreen[x][y]=2;
+	x=satr-3;	y=soton-1;
+	gamescreen[x][y]=2;
+	//4
+	x=satr-1;	y=soton-4;
+	gamescreen[x][y]=2;
+	x=satr-2; y=soton-3;
+	gamescreen[x][y]=2;
+	x=satr-3;	y=soton-2;
+	gamescreen[x][y]=2;
+	x=satr-4;	y=soton-1;
+	gamescreen[x][y]=2;
+	//3 va meghdary az 5
+	x=satr-2; y=soton-4;
+	gamescreen[x][y]=2;
+	x=satr-3;	y=soton-3;
+	gamescreen[x][y]=2;
+	x=satr-4;	y=soton-2;
+	gamescreen[x][y]=2;
+
+	if(s==0){
+		// khone haye samt chap	paeen (player 1)
+		//baghiye 5
+		x=satr-5;
+		gamescreen[x][0]=1;
+		x=satr-1;
+		gamescreen[x][4]=1;
+		
+		//4
+		x=satr-5;
+		gamescreen[x][1]=1;
+		x=satr-4;
+		gamescreen[x][2]=1;
+		x=satr-3;
+		gamescreen[x][3]=1;
+		x=satr-2;
+		gamescreen[x][4]=1;
+		
+		// khone haye samt rast	paeen (player 2)
+		//baghiye 5
+		x=satr-1;	y=soton-5;
+		gamescreen[x][y]=2;
+		x=satr-5;	y=soton-1;
+		gamescreen[x][y]=2;
+		//4
+		x=satr-2; y=soton-5;
+		gamescreen[x][y]=2;
+		x=satr-3;	y=soton-4;
+		gamescreen[x][y]=2;
+		x=satr-4; y=soton-3;
+		gamescreen[x][y]=2;
+		x=satr-5;	y=soton-2;
+		gamescreen[x][y]=2;
+	}
+	
+	if(playersNumber==4){
+			
+		//khone chap bala (player 3)
+		//1
+		gamescreen[0][0]=3;
+		//2
+		gamescreen[1][0]=3;
+		gamescreen[0][1]=3;
+		//3
+		gamescreen[2][0]=3;
+		gamescreen[1][1]=3;
+		gamescreen[0][2]=3;
+		//4
+		gamescreen[3][0]=3;
+		gamescreen[2][1]=3;
+		gamescreen[1][2]=3;
+		gamescreen[0][3]=3;
+		//3 va meghdari az 5
+		gamescreen[3][1]=3;
+		gamescreen[2][2]=3;
+		gamescreen[1][3]=3;
+		
+		//khone rast bala (player 4)
+		//1
+		y=soton-1;
+		gamescreen[0][y]=4;
+		//2
+		y=soton-2;
+		gamescreen[0][y]=4;
+		y=soton-1;
+		gamescreen[1][y]=4;
+		//3
+		y=soton-3;
+		gamescreen[0][y]=4;
+		y=soton-2;
+		gamescreen[1][y]=4;
+		y=soton-1;
+		gamescreen[2][y]=4;
+		//4
+		y=soton-4;
+		gamescreen[0][y]=4;
+		y=soton-3;
+		gamescreen[1][y]=4;
+		y=soton-2;
+		gamescreen[2][y]=4;
+		y=soton-1;
+		gamescreen[3][y]=4;
+		//3 va meghdari az 5
+		y=soton-4;
+		gamescreen[1][y]=4;
+		y=soton-3;
+		gamescreen[2][y]=4;
+		y=soton-2;
+		gamescreen[3][y]=4;
+		
+		if(s==0){
+			//baghie 5
+			gamescreen[0][4]=3;
+			gamescreen[4][0]=3;
+			//4
+			gamescreen[4][1]=3;
+			gamescreen[3][2]=3;
+			gamescreen[2][3]=3;
+			gamescreen[1][4]=3;
+			
+			//khone rast bala (player 4)
+			//baghie 5
+			y=soton-5;
+			gamescreen[0][y]=4;
+			y=soton-1;
+			gamescreen[4][y]=4;
+			//4
+			y=soton-5;
+			gamescreen[1][y]=4;
+			y=soton-4;
+			gamescreen[2][y]=4;
+			y=soton-3;
+			gamescreen[3][y]=4;
+			y=soton-2;
+			gamescreen[4][y]=4;
+		}
+	}
+	
+	for(i=1 ; i<=soton ; i++)
+		printf("        %d" , i);
+	printf("\n\n");
+	for(p=0 ; p<satr ; p++){
+		printf("%d    " , p+1);
+		for(j=0 ; j<satr ; j++){
+			if(gamescreen[p][j]==1)
+				printf("%s |", playerOneColor);
+			else if(gamescreen[p][j]==2)
+				printf("%s     |", playerTwoColor);
+			else if(gamescreen[p][j]==3)
+				printf("%s  |", playerThreeColor);
+			else if(gamescreen[p][j]==4)
+				printf("%s     |", playerFourColor);
+			else
+				printf("      |  ");
+		}
+		printf("\n");
+		printf("     ____________________________________________________________________________________________________");
+		printf("\n\n");
+	}
+}
 
